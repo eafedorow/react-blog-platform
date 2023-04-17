@@ -1,13 +1,9 @@
-.ThemeSwitcher {
-
-}
-
-
 .theme {
-  width: 35px;
-  height: 35px;
-  * {
-    stroke: var(--bg-color);
-    transition: 0.2s;
-  }
+	width: 35px;
+	height: 35px;
+
+	* {
+		stroke: var(--bg-color);
+		transition: 0.2s;
+	}
 }
