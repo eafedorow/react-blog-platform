@@ -60,7 +60,10 @@ module.exports = {
         "i18next/no-literal-string": ['error', { markupOnly: true }],
         "max-len": [
             "error",
-            { "code": 130 }
+            {
+                "code": 100,
+                "ignoreComments": true
+            }
         ],
         "react/button-has-type": [
             2,
