@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -59,7 +60,7 @@ module.exports = {
         "i18next/no-literal-string": ['error', { markupOnly: true }],
         "max-len": [
             "error",
-            { "code": 100 }
+            { "code": 130 }
         ],
         "react/button-has-type": [
             2,
