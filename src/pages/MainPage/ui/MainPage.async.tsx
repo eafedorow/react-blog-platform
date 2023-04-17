@@ -1,6 +1,6 @@
-import {lazy} from "react";
+import { lazy } from 'react';
 
 export const MainPageAsync = lazy(() => {
-    // @ts-ignore
-    return import('./MainPage');
-})
+	// @ts-ignore
+	return import('./MainPage');
+});
