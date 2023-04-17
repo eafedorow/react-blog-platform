@@ -53,6 +53,11 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "warn",
         "import/extensions": "off",
         "no-underscore-dangle": "off",
+        "no-multiple-empty-lines": "error",
+        "max-len": [
+            "error",
+            { "code": 100 }
+        ],
         "react/button-has-type": [
             2,
             {
