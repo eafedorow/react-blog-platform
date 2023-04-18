@@ -29,10 +29,6 @@ module.exports = {
         "i18next",
     ],
     "rules": {
-        "react/jsx-indent": [
-            "error",
-            "tab"
-        ],
         "react/jsx-indent-props": [
             "error",
             "tab"
