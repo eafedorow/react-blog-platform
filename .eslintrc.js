@@ -10,8 +10,6 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:i18next/recommended"
     ],
-    "overrides": [
-    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "sourceType": "module",
@@ -55,7 +53,8 @@ module.exports = {
         "no-multiple-empty-lines": "error",
         "i18next/no-literal-string": ['error',
             {
-                markupOnly: true, ignoreAttribute: ['data-testid']
+                markupOnly: true,
+                ignoreAttribute: ['data-testid', 'to']
             }
         ],
         "max-len": [
