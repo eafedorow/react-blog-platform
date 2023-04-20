@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
-import {buildCssLoader} from "./loaders/buildCssLoader";
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
@@ -46,7 +46,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/,
 	};
 
-	const cssLoader = buildCssLoader(isDev)
+	const cssLoader = buildCssLoader(isDev);
 
 	return [
 		fileLoder,
