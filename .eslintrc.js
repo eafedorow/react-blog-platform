@@ -49,6 +49,7 @@ module.exports = {
         "no-shadow": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
         "import/extensions": "off",
+        'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
         "no-underscore-dangle": "off",
         "no-multiple-empty-lines": "error",
         "i18next/no-literal-string": ['error',
