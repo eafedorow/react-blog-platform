@@ -70,7 +70,7 @@ module.exports = {
 			}
 		],
 		'react/button-has-type': [
-			2,
+			'error',
 			{
 				'button': true,
 				'submit': true,
