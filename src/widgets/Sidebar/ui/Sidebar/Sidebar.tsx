@@ -4,6 +4,11 @@ import React, { useState } from 'react';
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import HomeIcon from 'shared/assets/icons/Home.svg';
+import NoteIcon from 'shared/assets/icons/NoteIcon.svg';
 
 interface SidebarProps {
     className?: string;
@@ -11,6 +16,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
 	const [isCollapsed, setIsCollapsed] = useState(false);
+	const { t } = useTranslation();
 
 	const onToggle = () => {
 		setIsCollapsed(prev => !prev);
@@ -31,10 +37,34 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			>
 				{isCollapsed ? '>' : '<'}
 			</Button>
+			<div className={cls.nav}>
+
+				<AppLink
+					theme={AppLinkTheme.SECONDARY}
+					to={RoutePath.main}
+					className={cls.navItem}
+				>
+					<HomeIcon className={cls.navIcon}/>
+					<span className={cls.navLink}>
+						{t('Главная')}
+					</span>
+				</AppLink>
+
+				<AppLink
+					theme={AppLinkTheme.SECONDARY}
+					to={RoutePath.about}
+					className={cls.navItem}
+				>
+					<NoteIcon className={cls.navIcon}/>
+					<span className={cls.navLink}>
+						{t('О сайте')}
+					</span>
+				</AppLink>
+			</div>
 
 			<div className={cls.switchers}>
-				<ThemeSwitcher />
-				<LangSwitcher className={cls.lang}/>
+				<ThemeSwitcher className={cls.SidebarThemeSwitcher}/>
+				<LangSwitcher className={cls.SidebarLangSwitcher} isShort={isCollapsed}/>
 			</div>
 		</div>
 	);

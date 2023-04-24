@@ -1,0 +1,9 @@
+.LangIcon {
+  width: 35px;
+  height: 35px;
+
+  * {
+    stroke: var(--primary-color);
+    transition: 0.2s;
+  }
+}
