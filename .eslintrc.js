@@ -28,6 +28,7 @@ module.exports = {
 		'react',
 		'@typescript-eslint',
 		'i18next',
+		'react-hooks'
 	],
 	'rules': {
 		'react/jsx-indent-props': [
@@ -41,7 +42,7 @@ module.exports = {
 		'react/jsx-filename-extension': [
 			'error',
 			{
-				extensions: ['.js', '.jsx', '.tsx']
+				'extensions': ['.js', '.jsx', '.tsx']
 			}
 		],
 		'import/no-unresolved': 'off',
@@ -49,6 +50,8 @@ module.exports = {
 		'no-unused-vars': 'warn',
 		'react/require-default-props': 'off',
 		'react/react-in-jsx-scope': 'off',
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
 		'no-shadow': 'off',
 		'@typescript-eslint/ban-ts-comment': 'warn',
 		'import/extensions': 'off',
@@ -58,8 +61,8 @@ module.exports = {
 		'no-multiple-empty-lines': 'error',
 		'i18next/no-literal-string': ['error',
 			{
-				markupOnly: true,
-				ignoreAttribute: ['data-testid', 'to']
+				'markupOnly': true,
+				'ignoreAttribute': ['data-testid', 'to']
 			}
 		],
 		'max-len': [
@@ -90,16 +93,18 @@ module.exports = {
 		'object-curly-spacing': [
 			'error',
 			'always'
-		]
+		],
+		'jsx-ally/no-static-element-interactions': 'off',
 	},
 	'globals': {
 		'__IS_DEV__': true,
 	},
 	'overrides': [
 		{
-			files: ['**/src/**/*.test.{ts, tsx}'],
+			files: ['**/src/**/*.{stories,test}.{ts, tsx}'],
 			rules: {
-				'i18next/no-literal-string': 'off'
+				'i18next/no-literal-string': 'off',
+				'max-len': 'off'
 			},
 		}
 	]
