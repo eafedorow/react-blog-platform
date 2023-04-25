@@ -82,6 +82,7 @@ module.exports = {
 		],
 		'react/jsx-props-no-spreading': 'warn',
 		'react/function-component-definition': 'off',
+		'no-param-reassign': 'off',
 		'quotes': [
 			'error',
 			'single'

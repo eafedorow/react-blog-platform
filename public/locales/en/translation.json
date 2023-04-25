@@ -10,5 +10,7 @@
   "Сменить тему": "Change theme",
   "Страница не найдена": "Page not found",
   "Тестовый пример": "Test example",
-  "Язык": "English"
+  "Язык": "English",
+  "decrement": "decrement",
+  "increment": "increment"
 }
