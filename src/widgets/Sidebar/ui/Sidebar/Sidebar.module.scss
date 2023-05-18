@@ -30,6 +30,12 @@
   justify-content: flex-start;
   transition: 0.2s;
   width: 100%;
+  margin-right: 10px;
+
+  path {
+    transition: 0.2s;
+    stroke: var(--inverted-primary-color);
+  }
 
   &:hover {
     color: var(--primary-color);
@@ -41,15 +47,6 @@
 
   & + & {
     margin-top: 20px;
-  }
-}
-
-.navIcon {
-  margin-right: 10px;
-
-  path {
-    transition: 0.2s;
-    stroke: var(--inverted-primary-color);
   }
 }
 
