@@ -59,6 +59,7 @@ module.exports = {
 		'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
 		'no-underscore-dangle': 'off',
 		'no-multiple-empty-lines': 'error',
+		'react/display-name': 'warn',
 		'i18next/no-literal-string': ['error',
 			{
 				'markupOnly': true,
@@ -68,7 +69,7 @@ module.exports = {
 		'max-len': [
 			'error',
 			{
-				'code': 100,
+				'code': 120,
 				'ignoreComments': true
 			}
 		],

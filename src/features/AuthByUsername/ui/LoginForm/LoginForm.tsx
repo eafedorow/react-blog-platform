@@ -1,30 +1,41 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useState } from 'react';
+import { Text } from 'shared/ui/Text/Text';
+import { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginActions } from '../../model/slice/loginSlice';
+import { getLoginState } from '../../model/selectors/getLoginState';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { TextTheme } from 'shared/ui/Text/Text';
 
 interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = memo(({ className }: LoginFormProps) => {
 	const { t } = useTranslation();
+	const dispatch = useDispatch();
+	const { username, password, isLoading, error } = useSelector(getLoginState);
 
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+	const onChangeUsername = useCallback((val: string) => {
+		dispatch(loginActions.setUsername(val));
+	}, [dispatch]);
 
-	const onChangeUsername = (val: string) => {
-		setUsername(val);
-	};
+	const onChangePassword = useCallback((val: string) => {
+		dispatch(loginActions.setPassword(val));
+	}, [dispatch]);
 
-	const onChangePassword = (val: string) => {
-		setPassword(val);
-	};
+	const onSubmit = useCallback(() => {
+		dispatch(loginByUsername({ username, password }));
+	}, [dispatch, password, username]);
 
 	return (
 		<div className={classNames(cls.LoginForm, {}, [className])}>
+			<Text title={t('Форма авторизации')}/>
+			{error && <Text text={error} theme={TextTheme.ERROR}/>}
 			<Input
 				type='text'
 				className={cls.input}
@@ -40,9 +51,14 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 				value={password}
 				onChange={onChangePassword}
 			/>
-			<Button className={cls.loginBtn}>
+			<Button
+				className={cls.loginBtn}
+				theme={ThemeButton.OUTLINE}
+				onClick={onSubmit}
+				disabled={isLoading}
+			>
 				{t('Войти')}
 			</Button>
 		</div>
 	);
-};
+});

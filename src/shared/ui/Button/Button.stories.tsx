@@ -202,3 +202,11 @@ export const SquareDarkXL: Story = {
 		)
 	]
 };
+
+export const Disabled: Story = {
+	args: {
+		children: '>',
+		theme: ThemeButton.OUTLINE,
+		disabled: true
+	}
+};
